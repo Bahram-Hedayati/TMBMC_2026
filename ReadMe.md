@@ -156,4 +156,7 @@ The simulation framework is designed as a lattice-based agent-based model (ABM) 
 ## 👥 Contributors
 - Bahram Hedayati — Implementation and research
 - Dr. Karthik Reddy Gorla — Scientific guidance and supervision  
+
+## 🎓 Academic Supervision
+- Prof. Maurizio Magarini - Supervisor
   
