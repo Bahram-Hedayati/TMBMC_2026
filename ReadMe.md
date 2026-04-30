@@ -1,4 +1,4 @@
-# Hybrid Chemotaxis–Entropy Navigation for Nanoscale Medical Agents
+# Bio-Inspired Navigation for Intelligent Nanoscale Drug Delivery Systems based on Chemotaxis and Entropy
 
 This repository contains the implementation of a simulation framework for evaluating navigation strategies of a **Nanoscale Medical Agent (NMA)** in a **Tumor Microenvironment (TME)**.
 
