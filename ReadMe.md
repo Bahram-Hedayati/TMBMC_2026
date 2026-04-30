@@ -1,14 +1,14 @@
 # Bio-Inspired Navigation for Intelligent Nanoscale Drug Delivery Systems based on Chemotaxis and Entropy
 
-This repository contains the implementation of a simulation framework for evaluating navigation strategies of a **Nanoscale Medical Agent (NMA)** in a **Tumor Microenvironment (TME)**.
+This repository contains the implementation of a simulation framework for evaluating navigation strategies of a **Nanoscale Medical Agent (NMA)** in two types of **Tumor Microenvironments (TMEs)**.
 
-The project is developed based on our research on hybrid navigation mechanisms combining **chemotaxis** and **information-theoretic (entropy-based)** decision-making.
+The project is developed based on our research on hybrid navigation mechanisms combining **chemotaxis-based** and **entropy-based** decision-making.
 
 ---
 
 ## 📌 Overview
 
-The NMA operates as an autonomous agent within a discretized TME and aims to locate and treat tumor regions by sensing oxygen concentration (hypoxia).
+The NMA operates as an autonomous agent within a discretized TME and aims to locate and treat tumor regions by sensing lack of oxygen concentration (hypoxia).
 
 The framework evaluates navigation performance under different environmental conditions and strategies.
 
@@ -27,17 +27,17 @@ The project includes two types of tumor environments:
 
 Each scenario is evaluated using three navigation strategies:
 
-1. **Hybrid (Chemotaxis + Entropy)**
-2. **Chemotaxis-based**
-3. **Random Walk**
+1. **Hybrid (including chemotaxis-based and entropy-based states)**
+2. **Chemotaxis**
+3. **Random**
 
 ---
 
-## 🧠 Key Concept
+## 🧠 Key Concept of the Hybrid method
 
-- **Chemotaxis**: Moves toward lower oxygen concentration (hypoxic regions)
+- **Chemotaxis-based**: Moves toward lower oxygen concentration (hypoxic regions)
 - **Entropy-based navigation**: Explores regions with higher uncertainty
-- **Hybrid mechanism**: Dynamically switches between exploration and exploitation
+- **Hybrid mechanism**: Dynamically switches between exploration and localized refinement
 
 ---
 
@@ -46,7 +46,7 @@ Each scenario is evaluated using three navigation strategies:
 ### Core Modules
 
 - **`sysEnvClasses.py`**  
-  Defines the main system entities (NMA and TME) using object-oriented design.
+  Defines the main system entities (NMA and TME) using object-oriented programming (OOP) design.
 
 - **`publicFns.py`**  
   Utility functions for visualization and reporting.
@@ -69,7 +69,7 @@ Each scenario is evaluated using three navigation strategies:
 - **`SingleTumor_Chemotaxis.py`**  
 - **`SingleTumor_Random.py`**  
 
-Each script runs ensemble simulations for the respective navigation strategy.
+Each script runs ensemble simulations for the respective navigation strategy in the single-tumor scenario.
 
 ---
 
@@ -78,6 +78,8 @@ Each script runs ensemble simulations for the respective navigation strategy.
 - **`MultipleTumor_Hybrid.py`**  
 - **`MultipleTumor_Chemotaxis.py`**  
 - **`MultipleTumor_Random.py`**
+
+Each script runs ensemble simulations for the respective navigation strategy in the multi-tumor scenario.
 
 ---
 
@@ -94,6 +96,7 @@ The `Data/` folder contains:
 
 - Tumor masks (single & multi-tumor)
 - Steady-state oxygen distributions
+for each single-tumor and multi-tumor environments.
 
 All data are stored in CSV format and are used to initialize the simulation environments.
 
@@ -114,6 +117,7 @@ The simulation framework is designed as a lattice-based agent-based model (ABM) 
 - Two configurations are considered:
   - Single-tumor (centralized growth)
   - Multi-tumor (spatially distributed tumors with comparable total size)
+- Both of tumor masks are provided in two separated csv files in the folder **Data**
 
 ### Oxygen Diffusion
 - Oxygen distribution is obtained by solving a **reaction–diffusion model**:
@@ -132,25 +136,13 @@ The simulation framework is designed as a lattice-based agent-based model (ABM) 
 - The NMA is modeled as a **single autonomous agent** operating on the lattice.
 - At each time step, the NMA:
   1. Senses local oxygen values
-  2. Forms a probability distribution over candidate directions
-  3. Selects the next movement direction based on the navigation policy
-
-### Navigation Strategies
-- **Chemotaxis**: biased movement toward hypoxic regions
-- **Entropy-based**: exploration based on local uncertainty
-- **Hybrid**: adaptive switching between the two strategies
-
-### Entropy Computation
-- For each direction, a **local 3×3 voxel set** is evaluated
-- Oxygen values are transformed into weights and normalized to form a probability distribution
-- **Shannon entropy** is computed to quantify uncertainty
+  2. Selects the next movement direction based on the navigation policy
 
 ### Evaluation Protocol
 - Each experiment is repeated over **1000 ensemble runs**
 - Metrics include:
   - Tumor detection effectiveness
   - Number of treated voxels
-  - Navigation dynamics and trajectories
   - State-switching behavior (hybrid method)
 
 ## 👥 Contributors
