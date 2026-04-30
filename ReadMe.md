@@ -146,9 +146,9 @@ The simulation framework is designed as a lattice-based agent-based model (ABM) 
   - State-switching behavior (hybrid method)
 
 ## 👥 Contributors
-- Bahram Hedayati — Implementation and research
-- Dr. Karthik Reddy Gorla — Scientific guidance and supervision  
+- Bahram Hedayati (Implementation and research), Politecnico di Milano
+- Dr. Karthik Reddy Gorla (Scientific guidance and supervision), Politecnico di Milano
 
 ## 🎓 Academic Supervision
-- Prof. Maurizio Magarini - Supervisor
+- Prof. Maurizio Magarini (Supervisor), Politecnico di Milano
   
